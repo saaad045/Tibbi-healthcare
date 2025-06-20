@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD/ADHD Treatment | Tibbi Healthcare</title>
+    <!--favicon-->
+    <link rel="icon" href="./favicon/android-chrome-192x192.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/master.css">
+
+    <style>
+        /* Bipolar Disorder Page Styles */
+
+        /* Hero Section */
+        .bipolar-hero {
+            background: linear-gradient(135deg, rgba(40, 139, 132, 0.9), rgba(111, 163, 96, 0.9)),
+                url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover no-repeat fixed;
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bipolar-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(40, 139, 132, 0.9), rgba(111, 163, 96, 0.8));
+            z-index: 1;
+        }
+
+        .bipolar-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bipolar-hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .bipolar-hero p {
+            font-size: 1rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-form {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 5rem 0;
+        }
+
+        .content-section-gray {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1583264277139-3d9682e44b03?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGRpc2Vhc2V8ZW58MHx8MHx8fDA%3D');
+
+        }
+
+        .section-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .section-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .section-text {
+            flex: 1;
+        }
+
+        .section-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-text p {
+            color: #495057;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Symptoms Cards */
+        .symptoms-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .symptom-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .symptom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .symptom-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .symptom-card p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .symptom-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(40, 139, 132, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(40, 139, 132, 0.9), rgba(111, 163, 96, 0.9));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 10px !important;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .accordion-button {
+            background-color: white;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 1.5rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            background-color: white;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .section-container {
+                flex-direction: column;
+            }
+
+            .section-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .bipolar-hero {
+                padding: 4rem 0;
+            }
+
+            .bipolar-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .bipolar-hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .bipolar-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./img/TH-Logo-01.png" alt="Tibbi Healthcare Logo" class="logo-img">
+                <span style="font-weight: bold;">TIBBI</span>HEALTHCARE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <div class="d-flex align-items-center">
+                                    <!-- Main Services Link -->
+                                    <a class="nav-link" href="services.html">Services</a>
+                                    <!-- Dropdown Toggle -->
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#"
+                                        id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </a>
+                                </div>
+                                <!-- Dropdown Menu -->
+                                <ul class="dropdown-menu p-3"
+                                    style="min-width: 250px; background-color: var(--bs-dropdown-bg);"
+                                    aria-labelledby="servicesDropdown">
+                                    <li>
+                                        <div class="d-flex flex-column flex-lg-row">
+                                            <div class="me-lg-4 mb-3 mb-lg-0">
+                                                <a class="dropdown-item" href="bipolar-disorder.html">Bipolar
+                                                    Disorder</a>
+                                                <a class="dropdown-item" href="ADD-ADHD.html">ADD/ADHD</a>
+                                                <a class="dropdown-item" href="anxiety-disorder.html">Anxiety
+                                                    Disorder</a>
+                                                <a class="dropdown-item" href="depression.html">Depression</a>
+                                                <a class="dropdown-item" href="ptsd.html">PTSD</a>
+                                                <a class="dropdown-item" href="emotional-stress.html">Emotional
+                                                    Stress</a>
+                                                <a class="dropdown-item" href="Schizophrenia.html">Schizophrenia</a>
+                                                <a class="dropdown-item" href="psychosis.html">Psychosis</a>
+                                                <a class="dropdown-item" href="panic-disorder.html">Panic Disorder</a>
+                                                <a class="dropdown-item" href="austime-spectrum.html">Autism
+                                                    Spectrum</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="providers.html">Our Providers</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link">Resources</span>
+                            <!-- Dropdown Toggle -->
+                            <a class="nav-link dropdown-toggle dropdown-toggle-split" id="resourcesDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </a>
+                        </div>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu p-3" style="min-width: 200px; background-color: var(--bs-dropdown-bg);"
+                            aria-labelledby="resourcesDropdown">
+                            <li>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <!-- Resources Column -->
+                                    <div class="me-lg-4 mb-3 mb-lg-0">
+                                        <a class="dropdown-item" href="insurances-we-accept.html">Insurances we
+                                            accept</a>
+                                        <a class="dropdown-item" href="about-us.html">About us</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="btn ms-lg-3 mt-3 mt-lg-0" id="verify-insurance-btn">
+                    Verify Insurance
+                </button>
+                <div id="insurance-popup1" class="popup1">
+                    <div class="popup1-content">
+                        <span id="close1-popup1" class="close1">&times;</span>
+                        <h3>Verify Insurance</h3>
+                        <form class="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Patient First Name" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Patient Last Name" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Insurance Provider">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Member ID Number">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        Send Appointment Request
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Form -->
+    <section class="bipolar-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Effective ADHD Management Approaches at Tibbi Healthcare</h1>
+                    <p>
+                        Attention deficit hyperactivity disorder (ADHD) is a behavior-related disorder. Individuals with
+                        ADHD can appear
+                        restless, have difficulty concentrating, and act on impulse. It affects approximately 4.2% of
+                        all adults in the
+                        United States. However, there are likely to be many more adults who have not been diagnosed with
+                        the same condition.
+                        Even though ADHD is called childhood ADHD, its signs start early and can last into adulthood.
+                        Sometimes, ADHD isn’t
+                        diagnosed until someone is an adult. That’s why getting the right treatment from an ADHD
+                        psychiatrist is important.
+                    </p>
+                    <p>
+                        That’s why getting the right treatment from an ADHD psychiatrist is important. At MAVA
+                        Behavioral Health, our licensed healthcare providers help children manage ADHD. Our team works
+                        passionately to give personalized care that fits your teen’s needs. We are dedicated to ensuring
+                        patient get the best evidence-based treatment for their mental health and well-being.
+                    </p>
+                    <!-- <ul class="text-white mt-4" style="list-style-type: none; padding-left: 0;">
+                        <li><i class="fas fa-check-circle me-2"></i> Personalized treatment plans</li>
+                        <li><i class="fas fa-check-circle me-2"></i> Board-certified psychiatrists</li>
+                        <li><i class="fas fa-check-circle me-2"></i> Medication management</li>
+                        <li><i class="fas fa-check-circle me-2"></i> Psychotherapy options</li>
+                    </ul>-->
+                </div>
+                <div class="hero-form">
+                    <h3>Schedule a Consultation</h3>
+                    <form id="consultation-form">
+                        <input type="hidden" name="access_key" value="e804645e-85ea-4cca-bd60-0e6b6f5c0b0a" />
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="name" placeholder="Full Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Email Address"
+                                required />
+                        </div>
+                        <input type="hidden" name="replyto" value="email" />
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required />
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="message" placeholder="Brief Description of Symptoms"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 custom-submit">Get Started</button>
+                    </form>
+                </div>
+
+                <!-- Custom Popup -->
+                <div id="popup1" class="popup1">
+                    <div class="popup1-content">
+                        <span class="close1-btn"
+                            onclick="document.getElementById('popup1').style.display='none'">&times;</span>
+                        <h4>Thank you!</h4>
+                        <p>Your consultation has been successfully scheduled.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Bipolar Disorder Section -->
+    <section class="content-section">
+        <div class="section-container">
+            <div class="section-text">
+                <h2>ADHD Test for Adults at Tibbi Healthcare</h2>
+                <p>We have developed a short survey with questions that may determine whether you have experiences or
+                    traits typical of adult ADHD. This one is intended for adult users, the website is designed for
+                    people who are 18 years and older. If a person frequently answers “yes” to those questions, it is
+                    recommended to seek help from a mental health care provider. It is only an experienced clinician who
+                    can complete a clinical assessment to come up with a diagnosis.</p>
+                <p>At Tibbi Healthcare, we understand that bipolar disorder affects each person differently. Our team of
+                    specialists works closely with patients to develop individualized treatment plans that address their
+                    unique symptoms and needs.</p>
+                <p>With proper treatment and support, individuals with bipolar disorder can lead fulfilling, productive
+                    lives. Early intervention and consistent care are key to managing symptoms effectively.</p>
+            </div>
+            <div class="section-image">
+                <img src="https://images.unsplash.com/photo-1579780864813-863e246d3bc5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fGRpc2Vhc2V8ZW58MHx8MHx8fDA%3D"
+                    alt="Understanding Bipolar Disorder">
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of Bipolar Disorder Section -->
+    <section class="content-section content-section-gray">
+        <div class="section-container">
+            <div class="section-image">
+                <img src="https://images.unsplash.com/photo-1583264277139-3d9682e44b03?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGRpc2Vhc2V8ZW58MHx8MHx8fDA%3D"
+                    alt="Types of Bipolar Disorder">
+            </div>
+            <div class="section-text">
+                <h2>Types of ADD/ADHD</h2>
+                <p style="color: var(--light-color)">There are several types of ADD/ADHD, each with
+                    distinct patterns of symptoms:</p>
+                <ul>
+                    <li style="color: var(--light-color)"><strong>Medication:</strong> The most common and
+                        evidence-based treatment for ADHD, especially in moderate to severe cases.</li>
+                    <li style="color: var(--light-color)"><strong>Behavioral Therapy:</strong>Especially helpful for
+                        children and adolescents. Also effective when combined with medication.</li>
+                    <li style="color: var(--light-color)"><strong>Cognitive Behavioral Therapy (CBT):</strong> More
+                        useful in older children, teens, and adults.</li>
+                    <li style="color: var(--light-color)"><strong>Psychoeducation:</strong> Teaching the patient (and
+                        family) about ADHD so they understand the condition and its effects. Increases engagement and
+                        reduces stigma.</li>
+                </ul>
+                <p style="color: var(--light-color)">Our specialists are experienced in diagnosing and treating all
+                    types of ADD/ADHD, helping patients find stability and improved quality of life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptoms Section -->
+    <section class="symptoms-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recognizing the Symptoms</h2>
+                <p>Bipolar disorder symptoms can vary widely between individuals. Here are some common symptoms
+                    associated with different phases of the condition:</p>
+            </div>
+
+            <div class="symptoms-grid">
+                <!-- Manic Symptoms Card -->
+                <div class="symptom-card">
+                    <div class="symptom-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Difficulty Focusing</h3>
+                    <p>Daydreaming,
+                        Forgetfulness,
+                        Mental Fatigue,
+                        Impulsivity.</p>
+                </div>
+
+                <!-- Depressive Symptoms Card -->
+                <div class="symptom-card">
+                    <div class="symptom-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Low Frustration Tolerance</h3>
+                    <p>Negative self-talk,
+                        Low resilience,
+                        Impaired problem-solving,
+                        Impatience.</p>
+                </div>
+
+                <!-- Hypomanic Symptoms Card -->
+                <div class="symptom-card">
+                    <div class="symptom-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Mood Fluctuations</h3>
+                    <p>Emotional instability,
+                        Intense emotions,
+                        Frequent crying,
+                        Sadness.</p>
+                </div>
+
+                <!-- Mixed Episode Symptoms Card -->
+                <div class="symptom-card">
+                    <div class="symptom-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>Difficulty Controlling Anger</h3>
+                    <p>Verbal aggression,
+                        Impatience,
+                        Blame and criticism,
+                        Regret and guilt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Approaches Section -->
+    <section class="content-section content-section-gray"
+        style="background: url('https://plus.unsplash.com/premium_photo-1673958772185-df6f55ee7d67?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGRpc2Vhc2V8ZW58MHx8MHx8fDA%3D') no-repeat center center/cover;">
+        <div class="section-container"
+            style="background-color: rgba(255, 239, 239, 0.9); padding: 2rem; border-radius: 10px;">
+            <div class="section-text">
+                <h2>Our Treatment Approaches</h2>
+                <p>At Tibbi Healthcare, we employ a comprehensive, evidence-based approach to treating ADD/ADHD.
+                    Treatment typically involves a combination of:</p>
+                <ul>
+                    <li><strong>Medication Management:</strong> Mood stabilizers, antipsychotics, antidepressants, and
+                        other medications tailored to your specific needs.</li>
+                    <li><strong>Psychotherapy:</strong> Cognitive behavioral therapy, psychoeducation, family therapy,
+                        and other therapeutic approaches.</li>
+                    <li><strong>Lifestyle Strategies:</strong> Sleep regulation, stress management, exercise plans, and
+                        nutritional guidance.</li>
+                    <li><strong>Support Systems:</strong> Connection with support groups and community resources.</li>
+                </ul>
+                <p>Our goal for ADHD treatment is to improve your child’s symptoms so they can function better at home
+                    and school. For
+                    younger children (ages 4 and 5). Therefore, we recommend starting with parent interventions before
+                    considering
+                    medication. We aim to create a supportive environment for the children through effective discussion
+                    with the
+                    parents. You can access our online ADHD diagnosis and treatment services for your child’s mental
+                    health.</p>
+            </div>
+            <div class="section-image">
+                <img src="https://plus.unsplash.com/premium_photo-1673958772185-df6f55ee7d67?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGRpc2Vhc2V8ZW58MHx8MHx8fDA%3D"
+                    alt="Bipolar Disorder Treatment">
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies Section -->
+    <section class="companies-section py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" style="color: var(--primary-color);">We accept Insurance</h2>
+                    <p class="section-subtitle" style="color: var(--primary-color);">99% of patients have successfully
+                        booked with these insurances</p>
+                </div>
+            </div>
+
+            <div class="scrolling-banner-container">
+                <div class="scrolling-banner">
+                    <!-- First set of logos -->
+                    <div class="company-logo">
+                        <img src="./img/beacon-health.png" alt="Beacon Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/cigna.png" alt="Cigna" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/emblem.png" alt="Emblem" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/magellan.png" alt="Magellan" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/medicaid.jfif" alt="Medicaid" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/optum.png" alt="Optum" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/UMR.jfif" alt="UMR" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/tricare.jfif" alt="Tricare" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/unitedhealth.png" alt="United Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/molina.png" alt="Molina" class="img-fluid">
+                    </div>
+
+                    <!-- Duplicate set for seamless looping -->
+                    <div class="company-logo">
+                        <img src="./img/beacon-health.png" alt="Beacon Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/cigna.png" alt="Cigna" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/emblem.png" alt="Emblem" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/magellan.png" alt="Magellan" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/medicaid.jfif" alt="Medicaid" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/optum.png" alt="Optum" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/UMR.jfif" alt="UMR" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/tricare.jfif" alt="Tricare" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/unitedhealth.png" alt="United Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/molina.png" alt="Molina" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about bipolar disorder and our treatment approaches</p>
+            </div>
+
+            <div class="accordion" id="faqAccordion">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What causes bipolar disorder?
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>The exact cause of bipolar disorder isn't fully understood, but research suggests a
+                                combination of factors including biological differences in the brain, genetics, and
+                                environmental triggers. People with bipolar disorder appear to have physical changes in
+                                their brains, and imbalances in neurotransmitters play a significant role.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How is bipolar disorder diagnosed?
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Diagnosis involves a thorough psychiatric evaluation that includes a detailed history of
+                                symptoms, family history, and sometimes input from family members. There are no blood
+                                tests or brain scans that can diagnose bipolar disorder, but these may be used to rule
+                                out other conditions. Our specialists use established diagnostic criteria to make an
+                                accurate diagnosis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            What's the difference between bipolar disorder and regular mood swings?
+                        </button>
+                    </h3>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>While everyone experiences ups and downs, bipolar disorder involves extreme mood changes
+                                that are more severe than normal mood swings. These episodes last for days or weeks (not
+                                hours), significantly impair daily functioning, and may include psychotic symptoms
+                                during severe episodes. The mood changes in bipolar disorder are not related to external
+                                events in the way typical mood swings often are.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Can bipolar disorder be cured?
+                        </button>
+                    </h3>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>While there's no cure for bipolar disorder, it can be effectively managed with proper
+                                treatment. Many people with bipolar disorder lead full, productive lives when they
+                                receive appropriate care. Treatment typically focuses on managing symptoms and
+                                preventing relapses through a combination of medication, therapy, and lifestyle
+                                adjustments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            How long does treatment for bipolar disorder take?
+                        </button>
+                    </h3>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Bipolar disorder typically requires long-term, ongoing treatment rather than a short-term
+                                course. Even during periods when you feel well, continuing with your treatment plan is
+                                essential to prevent new episodes. The duration and intensity of treatment may vary over
+                                time based on your symptoms and response to treatment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section 
+    <section class="cta-section">
+        <div class="container">
+            <h2>Take the First Step Toward Stability</h2>
+            <p>If you or a loved one are experiencing symptoms of bipolar disorder, don't wait to seek help. Our
+                compassionate team is here to provide the expert care and support you need.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="btn btn-light btn-lg">Call Now: (800) 555-1234</a>
+                <a href="#" class="btn btn-outline-light btn-lg">Schedule Online</a>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Appointment Section -->
+    <section class="appointment-section" id="appointment">
+        <div class="appointment-container">
+            <!-- Calendly container - widget will be injected here -->
+            <div class="calendly-container">
+                <div id="calendly-embed" style="min-width:320px;height:650px;"></div>
+            </div>
+
+            <!-- Contact form -->
+            <div class="form-container">
+                <h2>Book an Appointment</h2>
+                <form class="appointment-form">
+                    <!-- Your form fields here -->
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Additional Details</label>
+                        <textarea id="details" name="details" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container mb-4">
+            <div class="d-flex justify-content-between align-items-center footer-top">
+                <div class="footer-top-text">
+                    <p style="font-weight: 40;">
+                        <a href="contact-us.html"
+                            style="color: inherit; text-decoration: underline; text-decoration: none;">Book appointment
+                            online</a>
+                    </p>
+                    <h3 class="mb-0" style="color: var(--light-color); font-weight: 100;">Stay connected with us</h3>
+                </div>
+                <div class="footer-top-buttons">
+                    <a href="contact-us.html" class="btn custom-btn me-2">BOOK APPOINTMENT</a>
+                    <a href="#" class="btn custom-outline"> CALL NOW</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="footer-brand" href="#">
+                        <img src="./img/TH-Logo-01.png" alt="Tibbi Healthcare Logo" class="logo-img">
+                        TIBBIHEALTHCARE
+                    </a>
+                    <p>Providing exceptional healthcare services with compassion and expertise since 2010.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="providers.html">Our Providers</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="bipolar-disorder.html">Bipolar Disorder</a></li>
+                        <li><a href="ADD-ADHD.html">ADD/ADHD</a></li>
+                        <li><a href="anxiety-disorder.html">Anxiety Disorder</a></li>
+                        <li><a href="depression.html">Depression</a></li>
+                        <li><a href="ptsd.html">PTSD</a></li>
+                        <li><a href="emotional-stress.html">Emotional Stress</a></li>
+                        <li><a href="Schizophrenia.html">Schizophrenia</a></li>
+                        <li><a href="psychosis.html">Psychosis</a></li>
+                        <li><a href="panic-disorder.html">Panic Disorder</a></li>
+                        <li><a href="austime-spectrum.html">Autism Spectrum</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for health tips and updates.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Tibbi Healthcare. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-bottom-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <!--CDN link for POPUP-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

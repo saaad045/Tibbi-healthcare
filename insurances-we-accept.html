@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance We Accept | Tibbi Healthcare</title>
+    <!--favicon-->
+    <link rel="icon" href="./favicon/android-chrome-192x192.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/master.css">
+
+    <style>
+        /* Insurance Page Styles */
+
+        /* Insurance Hero Section */
+        .insurance-hero {
+            background: linear-gradient(135deg, rgba(40, 139, 132, 0.9), rgba(111, 163, 96, 0.9)),
+                url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover no-repeat fixed;
+            color: white;
+            padding: 8rem 0 6rem;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .insurance-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(40, 139, 132, 0.9), rgba(111, 163, 96, 0.8));
+            z-index: 1;
+        }
+
+        .insurance-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .insurance-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .insurance-hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Insurance List Section */
+        .insurance-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .insurance-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+        }
+
+        .insurance-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .insurance-alphabet {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .alphabet-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #f1f1f1;
+            color: var(--dark-color);
+            border-radius: 50%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .alphabet-link:hover,
+        .alphabet-link.active {
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+        }
+
+        .insurance-list {
+            column-count: 2;
+            column-gap: 2rem;
+        }
+
+        .insurance-category {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+
+        .insurance-category h3 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .insurance-item {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .insurance-item::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Insurance Verification Section */
+        .verification-section {
+            padding: 3rem 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .verification-box {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .verification-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .insurance-list {
+                column-count: 1;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .insurance-hero {
+                padding: 5rem 0 3rem;
+            }
+
+            .insurance-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .insurance-hero p {
+                font-size: 1.2rem;
+            }
+
+            .insurance-container {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .insurance-hero h1 {
+                font-size: 2rem;
+            }
+
+            .insurance-hero p {
+                font-size: 1rem;
+            }
+
+            .insurance-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./img/TH-Logo-01.png" alt="Tibbi Healthcare Logo" class="logo-img">
+                <span style="font-weight: bold;">TIBBI</span>HEALTHCARE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <div class="d-flex align-items-center">
+                                    <!-- Main Services Link -->
+                                    <a class="nav-link" href="services.html">Services</a>
+                                    <!-- Dropdown Toggle -->
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#"
+                                        id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </a>
+                                </div>
+                                <!-- Dropdown Menu -->
+                                <ul class="dropdown-menu p-3"
+                                    style="min-width: 250px; background-color: var(--bs-dropdown-bg);"
+                                    aria-labelledby="servicesDropdown">
+                                    <li>
+                                        <div class="d-flex flex-column flex-lg-row">
+                                            <div class="me-lg-4 mb-3 mb-lg-0">
+                                                <a class="dropdown-item" href="bipolar-disorder.html">Bipolar
+                                                    Disorder</a>
+                                                <a class="dropdown-item" href="ADD-ADHD.html">ADD/ADHD</a>
+                                                <a class="dropdown-item" href="anxiety-disorder.html">Anxiety
+                                                    Disorder</a>
+                                                <a class="dropdown-item" href="depression.html">Depression</a>
+                                                <a class="dropdown-item" href="ptsd.html">PTSD</a>
+                                                <a class="dropdown-item" href="emotional-stress.html">Emotional
+                                                    Stress</a>
+                                                <a class="dropdown-item" href="Schizophrenia.html">Schizophrenia</a>
+                                                <a class="dropdown-item" href="psychosis.html">Psychosis</a>
+                                                <a class="dropdown-item" href="panic-disorder.html">Panic Disorder</a>
+                                                <a class="dropdown-item" href="austime-spectrum.html">Autism
+                                                    Spectrum</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="providers.html">Our Providers</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link">Resources</span>
+                            <!-- Dropdown Toggle -->
+                            <a class="nav-link dropdown-toggle dropdown-toggle-split" id="resourcesDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </a>
+                        </div>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu p-3" style="min-width: 200px; background-color: var(--bs-dropdown-bg);"
+                            aria-labelledby="resourcesDropdown">
+                            <li>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <!-- Resources Column -->
+                                    <div class="me-lg-4 mb-3 mb-lg-0">
+                                        <a class="dropdown-item" href="insurances-we-accept.html">Insurances we
+                                            accept</a>
+                                        <a class="dropdown-item" href="about-us.html">About us</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="btn ms-lg-3 mt-3 mt-lg-0" id="verify-insurance-btn">
+                    Verify Insurance
+                </button>
+                <div id="insurance-popup" class="popup">
+                    <div class="popup-content">
+                        <span id="close-popup" class="close">&times;</span>
+                        <h3>Verify Insurance</h3>
+                        <form class="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Patient First Name" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Patient Last Name" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Insurance Provider">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Member ID Number">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        Send Appointment Request
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!-- Insurance Hero Section -->
+    <section class="insurance-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Insurance We Accept</h1>
+                    <p class="lead mb-5">We work with most major insurance providers to make mental healthcare
+                        accessible and affordable for all our patients.</p>
+                </div>
+            </div>
+        </div>
+        <div class="wave-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#fff" fill-opacity="1"
+                    d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Insurance List Section -->
+    <section class="insurance-section">
+        <div class="insurance-container">
+            <h2>Accepted Insurance Providers</h2>
+
+            <div class="insurance-alphabet">
+                <a href="#A" class="alphabet-link">A</a>
+                <a href="#B" class="alphabet-link">B</a>
+                <a href="#C" class="alphabet-link">C</a>
+                <a href="#E" class="alphabet-link">E</a>
+                <a href="#K" class="alphabet-link">K</a>
+                <a href="#L" class="alphabet-link">L</a>
+                <a href="#M" class="alphabet-link">M</a>
+                <a href="#P" class="alphabet-link">P</a>
+                <a href="#R" class="alphabet-link">R</a>
+                <a href="#S" class="alphabet-link">S</a>
+                <a href="#U" class="alphabet-link">U</a>
+                <a href="#W" class="alphabet-link">W</a>
+            </div>
+
+            <div class="insurance-list">
+                <!-- A -->
+                <div class="insurance-category" id="A">
+                    <h3>A</h3>
+                    <div class="insurance-item">AARP</div>
+                    <div class="insurance-item">Aetna (Commercial)</div>
+                    <div class="insurance-item">Aetna Better Health (Medicaid)</div>
+                    <div class="insurance-item">Aetna Medicare Advantage</div>
+                    <div class="insurance-item">Aetna Whole Health</div>
+                    <div class="insurance-item">Ambetter (Commercial)</div>
+                    <div class="insurance-item">Anthem Blue Cross Blue Shield (Commercial)</div>
+                    <div class="insurance-item">Apple Health Core Connections</div>
+                    <div class="insurance-item">Asuris Northwest Health (Commercial)</div>
+                    <div class="insurance-item">Asuris Northwest Health (Medicare Advantage)</div>
+                    <div class="insurance-item">Ageright Advantage</div>
+                </div>
+
+                <!-- B -->
+                <div class="insurance-category" id="B">
+                    <h3>B</h3>
+                    <div class="insurance-item">BIAW Health Insurance Trust (Group)</div>
+                    <div class="insurance-item">Business Health Trust</div>
+                </div>
+
+                <!-- C -->
+                <div class="insurance-category" id="C">
+                    <h3>C</h3>
+                    <div class="insurance-item">CAMPS Health Trust</div>
+                    <div class="insurance-item">Carelon Behavioral Health</div>
+                    <div class="insurance-item">Cigna/Evernorth</div>
+                    <div class="insurance-item">Cigna/Evernorth Medicaid</div>
+                    <div class="insurance-item">Cigna/Evernorth Surefit</div>
+                    <div class="insurance-item">Coordinated Care (BHSO)</div>
+                    <div class="insurance-item">Coordinated Care (Medicaid)</div>
+                </div>
+
+                <!-- E -->
+                <div class="insurance-category" id="E">
+                    <h3>E</h3>
+                    <div class="insurance-item">EMI (Commercial)</div>
+                    <div class="insurance-item">EMI (Group)</div>
+                    <div class="insurance-item">Essence Advantage (Medicare)</div>
+                    <div class="insurance-item">Essence Advantage Choice Plus</div>
+                </div>
+
+                <!-- K -->
+                <div class="insurance-category" id="K">
+                    <h3>K</h3>
+                    <div class="insurance-item">Kaiser Permanente</div>
+                    <div class="insurance-item">Kaiser Permanente (Commercial)</div>
+                    <div class="insurance-item">Kaiser Permanente (Medicare)</div>
+                </div>
+
+                <!-- L -->
+                <div class="insurance-category" id="L">
+                    <h3>L</h3>
+                    <div class="insurance-item">LifeWise Health Plan</div>
+                    <div class="insurance-item">LifeWise (Commercial)</div>
+                    <div class="insurance-item">LifeWise (Medicaid)</div>
+                    <div class="insurance-item">LifeWise (Student Plan)</div>
+                </div>
+
+                <!-- M -->
+                <div class="insurance-category" id="M">
+                    <h3>M</h3>
+                    <div class="insurance-item">Medicare (Group)</div>
+                    <div class="insurance-item">Medicare (Individual)</div>
+                    <div class="insurance-item">MBA Health Insurance Trust</div>
+                    <div class="insurance-item">Molina Healthcare</div>
+                    <div class="insurance-item">Molina (Commercial)</div>
+                    <div class="insurance-item">Molina (Medicaid)</div>
+                </div>
+
+                <!-- P -->
+                <div class="insurance-category" id="P">
+                    <h3>P</h3>
+                    <div class="insurance-item">PacificSource (Commercial)</div>
+                    <div class="insurance-item">PacificSource (Medicaid)</div>
+                    <div class="insurance-item">PacificSource (Medicare)</div>
+                    <div class="insurance-item">Premera Blue Cross</div>
+                </div>
+
+                <!-- R -->
+                <div class="insurance-category" id="R">
+                    <h3>R</h3>
+                    <div class="insurance-item">Regence Blue Shield</div>
+                </div>
+
+                <!-- S -->
+                <div class="insurance-category" id="S">
+                    <h3>S</h3>
+                    <div class="insurance-item">Sana Benefits</div>
+                    <div class="insurance-item">SilverScript</div>
+                </div>
+
+                <!-- U -->
+                <div class="insurance-category" id="U">
+                    <h3>U</h3>
+                    <div class="insurance-item">UHC Commercial</div>
+                    <div class="insurance-item">UHC Community Plan (Medicaid)</div>
+                    <div class="insurance-item">UHC Individual and Family Plans</div>
+                    <div class="insurance-item">UHC Medicare</div>
+                    <div class="insurance-item">UHC Medicare-Medicaid</div>
+                </div>
+
+                <!-- W -->
+                <div class="insurance-category" id="W">
+                    <h3>W</h3>
+                    <div class="insurance-item">Washington Alliance for Healthcare Insurance Trust</div>
+                    <div class="insurance-item">Wellcare Giveback (Medicare)</div>
+                    <div class="insurance-item">Wellcare Open</div>
+                    <div class="insurance-item">Wellcare Simple (Medicare)</div>
+                    <div class="insurance-item">Wellpoint (Medicaid)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verification Section -->
+    <section class="verification-section">
+        <div class="verification-box">
+            <h3>Don't See Your Insurance Listed?</h3>
+            <p>Our accepted insurance plans are updated regularly. Please contact us or verify your insurance to confirm
+                coverage.</p>
+            <button class="btn btn-primary mt-3" id="verify-insurance-btn-2">Verify Your Insurance</button>
+            <div id="insurance-popup-2" class="popup" style="display:none;">
+                <div class="popup-content">
+                    <span id="close-popup-2" class="close">&times;</span>
+                    <h3>Verify Insurance</h3>
+                    <form class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Patient First Name" required>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Patient Last Name" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="tel" class="form-control" placeholder="Phone Number" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Insurance Provider">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Member ID Number">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Send Appointment Request
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies Section -->
+    <section class="companies-section py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" style="color: var(--primary-color);">We accept Insurance</h2>
+                    <p class="section-subtitle" style="color: var(--primary-color);">99% of patients have successfully
+                        booked with these insurances</p>
+                </div>
+            </div>
+
+            <div class="scrolling-banner-container">
+                <div class="scrolling-banner">
+                    <!-- First set of logos -->
+                    <div class="company-logo">
+                        <img src="./img/beacon-health.png" alt="Beacon Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/cigna.png" alt="Cigna" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/emblem.png" alt="Emblem" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/magellan.png" alt="Magellan" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/medicaid.jfif" alt="Medicaid" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/optum.png" alt="Optum" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/UMR.jfif" alt="UMR" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/tricare.jfif" alt="Tricare" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/unitedhealth.png" alt="United Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/molina.png" alt="Molina" class="img-fluid">
+                    </div>
+
+                    <!-- Duplicate set for seamless looping -->
+                    <div class="company-logo">
+                        <img src="./img/beacon-health.png" alt="Beacon Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/cigna.png" alt="Cigna" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/emblem.png" alt="Emblem" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/magellan.png" alt="Magellan" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/medicaid.jfif" alt="Medicaid" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/optum.png" alt="Optum" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/UMR.jfif" alt="UMR" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/tricare.jfif" alt="Tricare" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/unitedhealth.png" alt="United Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/molina.png" alt="Molina" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Appointment Section -->
+    <section class="appointment-section" id="appointment">
+        <div class="appointment-container">
+            <!-- Calendly container - widget will be injected here -->
+            <div class="calendly-container">
+                <div id="calendly-embed" style="min-width:320px;height:650px;"></div>
+            </div>
+
+            <!-- Contact form -->
+            <div class="form-container">
+                <h2>Book an Appointment</h2>
+                <form class="appointment-form">
+                    <!-- Your form fields here -->
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Additional Details</label>
+                        <textarea id="details" name="details" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container mb-4">
+            <div class="d-flex justify-content-between align-items-center footer-top">
+                <div class="footer-top-text">
+                    <p style="font-weight: 40;">Book appointment online</p>
+                    <h3 class="mb-0" style="color: var(--light-color); font-weight: 100;">Stay connected with us</h3>
+                </div>
+                <div class="footer-top-buttons">
+                    <a href="contact-us.html" class="btn custom-btn me-2">BOOK APPOINTMENT</a>
+                    <a href="#" class="btn custom-outline">CALL NOW</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="footer-brand" href="#">
+                        <img src="./img/TH-Logo-01.png" alt="Tibbi Healthcare Logo" class="logo-img">
+                        TIBBIHEALTHCARE
+                    </a>
+                    <p>Providing exceptional healthcare services with compassion and expertise since 2010.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="providers.html">Our Providers</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="bipolar-disorder.html">Bipolar Disorder</a></li>
+                        <li><a href="ADD-ADHD.html">ADD/ADHD</a></li>
+                        <li><a href="anxiety-disorder.html">Anxiety Disorder</a></li>
+                        <li><a href="depression.html">Depression</a></li>
+                        <li><a href="ptsd.html">PTSD</a></li>
+                        <li><a href="emotional-stress.html">Emotional Stress</a></li>
+                        <li><a href="Schizophrenia.html">Schizophrenia</a></li>
+                        <li><a href="psychosis.html">Psychosis</a></li>
+                        <li><a href="panic-disorder.html">Panic Disorder</a></li>
+                        <li><a href="austime-spectrum.html">Autism Spectrum</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for health tips and updates.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Tibbi Healthcare. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-bottom-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        // Add smooth scrolling for alphabet links
+        document.querySelectorAll('.alphabet-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Duplicate the insurance verification functionality for the second button
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get elements
+            const verifyBtn1 = document.getElementById('verify-insurance-btn');
+            const verifyBtn2 = document.getElementById('verify-insurance-btn-2');
+            const popup1 = document.getElementById('insurance-popup');
+            const popup2 = document.getElementById('insurance-popup-2');
+            const closeBtn1 = document.getElementById('close-popup');
+            const closeBtn2 = document.getElementById('close-popup-2');
+
+            // Show popup for first button
+            verifyBtn1.addEventListener('click', function () {
+                popup1.style.display = 'block';
+            });
+
+            // Show popup for second button
+            verifyBtn2.addEventListener('click', function () {
+                popup2.style.display = 'block';
+            });
+
+            // Close popup for first button
+            closeBtn1.addEventListener('click', function () {
+                popup1.style.display = 'none';
+            });
+
+            // Close popup for second button
+            closeBtn2.addEventListener('click', function () {
+                popup2.style.display = 'none';
+            });
+
+            // Close when clicking outside the popup content
+            window.addEventListener('click', function (event) {
+                if (event.target === popup1) {
+                    popup1.style.display = 'none';
+                }
+                if (event.target === popup2) {
+                    popup2.style.display = 'none';
+                }
+            });
+
+            // Add smooth scrolling for alphabet links
+            document.querySelectorAll('.alphabet-link').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tibbi Healthcare</title>
+    <!--favicon-->
+    <link rel="icon" href="./favicon/android-chrome-192x192.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/master.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./img/TH-Logo-01.png" alt="Tibbi Healthcare Logo" class="logo-img">
+                <span style="font-weight: bold;">TIBBI</span>HEALTHCARE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <div class="d-flex align-items-center">
+                                    <!-- Main Services Link -->
+                                    <a class="nav-link" href="services.html">Services</a>
+                                    <!-- Dropdown Toggle -->
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#"
+                                        id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </a>
+                                </div>
+                                <!-- Dropdown Menu -->
+                                <ul class="dropdown-menu p-3"
+                                    style="min-width: 100px; background-color: var(--bs-dropdown-bg);"
+                                    aria-labelledby="servicesDropdown">
+                                    <li>
+                                        <div class="d-flex flex-column flex-lg-row">
+                                            <div class="me-lg-4 mb-3 mb-lg-0">
+                                                <a class="dropdown-item" href="bipolar-disorder.html">Bipolar
+                                                    Disorder</a>
+                                                <a class="dropdown-item" href="ADD-ADHD.html">ADD/ADHD</a>
+                                                <a class="dropdown-item" href="anxiety-disorder.html">Anxiety Disorder</a>
+                                                <a class="dropdown-item" href="depression.html">Depression</a>
+                                                <a class="dropdown-item" href="ptsd.html">PTSD</a>
+                                                <a class="dropdown-item" href="emotional-stress.html">Emotional Stress</a>
+                                                <a class="dropdown-item" href="Schizophrenia.html">Schizophrenia</a>
+                                                <a class="dropdown-item" href="psychosis.html">Psychosis</a>
+                                                <a class="dropdown-item" href="panic-disorder.html">Panic Disorder</a>
+                                                <a class="dropdown-item" href="austime-spectrum.html">Autism Spectrum</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="providers.html">Our Providers</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link">Resources</span>
+                            <!-- Dropdown Toggle -->
+                            <a class="nav-link dropdown-toggle dropdown-toggle-split" id="resourcesDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </a>
+                        </div>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu p-3" style="min-width: 200px; background-color: var(--bs-dropdown-bg);"
+                            aria-labelledby="resourcesDropdown">
+                            <li>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <!-- Resources Column -->
+                                    <div class="me-lg-4 mb-3 mb-lg-0">
+                                        <a class="dropdown-item" href="insurances-we-accept.html">Insurances we
+                                            accept</a>
+                                        <a class="dropdown-item" href="about-us.html">About us</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="btn ms-lg-3 mt-3 mt-lg-0" id="verify-insurance-btn">
+                    Verify Insurance
+                </button>
+                <div id="insurance-popup" class="popup">
+                    <div class="popup-content">
+                        <span id="close-popup" class="close">&times;</span>
+                        <h3>Verify Insurance</h3>
+                        <form class="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Patient First Name" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Patient Last Name" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Insurance Provider">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Member ID Number">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        Send Appointment Request
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Compassionate Care for Your Health Journey</h1>
+                    <p class="lead mb-4">At Tibbi Healthcare, we provide personalized medical services tailored to your
+                        unique needs with our team of experienced professionals.</p>
+                    <div class="d-flex gap-3">
+                        <a href="contact-us.html" class="btn btn-primary">Book an Appointment</a>
+                        <a href="#about" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#fff" fill-opacity="1"
+                    d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <div class="doctor-images">
+            <div class="doctor-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                    alt="Doctor 1" class="img-fluid doctor-1">
+            </div>
+            <div class="doctor-image-wrapper">
+                <img src="https://plus.unsplash.com/premium_photo-1682141179682-3b455cbccb4c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG51cnNlc3xlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Doctor 2" class="img-fluid doctor-2">
+
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services-section py-5" id="services">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" style="color: var(--primary-color);">Our Services</h2>
+                    <p class="section-subtitle" style="color: var(--primary-color);">Comprehensive healthcare services
+                        for all your needs</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- service 1 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-diagnoses"></i>
+                        </div>
+                        <h3>Bipolar Disorder</h3>
+                        <p>Our bipolar disorder Specialists assist you in tackling your mood swings, daily activities,
+                            and behavior.</p>
+                    </div>
+                </div>
+                <!-- service 2 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Anxiety Disorder</h3>
+                        <p>Using our effective strategies, you can manage your anxiety more easily and confidently.</p>
+                    </div>
+                </div>
+                <!-- service 3 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sad-tear"></i>
+                        </div>
+                        <h3>Depression</h3>
+                        <p>Our professional mental health experts analyze, assess, and prepare a treatment plan
+                            for you as per your mental health needs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                
+                <a href="services.html" class="btn btn-outline-primary">View More Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title text-white">About Tibbi Healthcare</h2>
+                    <!--<p class="text-white">Founded in 2010, Tibbi Healthcare has been providing exceptional medical care
+                        to our community. Our mission is to deliver compassionate, high-quality healthcare services that
+                        improve the lives of our patients.</p>
+                    <p class="text-white">With a team of board-certified physicians and healthcare professionals, we
+                        combine cutting-edge technology with personalized care to ensure the best possible outcomes for
+                        our patients.</p>-->
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's
+                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                        scrambled it to make a
+                        type specimen book. It has survived not only five centuries, but also the leap into electronic
+                        typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                        sheets containing
+                        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                        including versions of
+                        Lorem Ipsum</p>
+
+                    <div class="why-us-tag mt-4">
+                        <span class="badge py-2 px-3">Why Us</span>
+                        <ul class="mt-3">
+                            <li>Experienced team of medical specialists</li>
+                            <li>State-of-the-art facilities</li>
+                            <li>Patient-centered approach</li>
+                            <li>Affordable healthcare solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="d-flex gap-3 mt-4 stats-container">
+                        <div class="stat-box">
+                            <h3 class="stat-counter" data-target="250">45</h3>
+                            <p>Specialists</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 class="stat-counter" data-target="15">15</h3>
+                            <p>Specialties</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 class="stat-counter" data-target="50">50</h3>
+                            <p>Patients Served (K+)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Healthcare Team" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" style="color: var(--primary-color);">What Our Patients Say</h2>
+                    <p class="section-subtitle" style="color: var(--primary-color);">Hear from those we've had the
+                        privilege to serve</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        <p>"The care I received at Tibbi Healthcare was exceptional. The doctors took
+                                            time to listen to my concerns and explained everything clearly. I felt truly
+                                            cared for throughout my treatment."</p>
+                                    </div>
+                                    <div>
+                                        <h5>Sarah Johnson</h5>
+                                        <p>Cardiology Patient</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        <p>"After struggling with chronic back pain for years, the orthopedic team at
+                                            Tibbi Healthcare finally helped me find relief. Their comprehensive approach
+                                            made all the difference."</p>
+                                    </div>
+                                    <div>
+                                        <h5>Michael Chen</h5>
+                                        <p>Orthopedics Patient</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        <p>"The neurology department provided excellent care for my mother. They were
+                                            compassionate, knowledgeable, and always available to answer our questions
+                                            during a difficult time."</p>
+                                    </div>
+                                    <div>
+                                        <h5>Lisa Rodriguez</h5>
+                                        <p>Family Member</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychiatric Rehab Process Section -->
+    <section class="rehab-process-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-white">Our Psychiatric Rehab Process</h2>
+                    <p class="section-subtitle text-white-50">A comprehensive approach to mental health recovery</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Process Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="process-card">
+                        <div class="process-number">01</div>
+                        <h3>Initial Assessment</h3>
+                        <p>Comprehensive evaluation by our psychiatric team to understand your unique needs and create a
+                            personalized treatment plan.</p>
+                        <div class="process-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Card 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="process-card">
+                        <div class="process-number">02</div>
+                        <h3>Treatment Planning</h3>
+                        <p>Development of a customized rehabilitation program combining therapy, medication management,
+                            and lifestyle changes.</p>
+                        <div class="process-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Card 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="process-card">
+                        <div class="process-number">03</div>
+                        <h3>Therapy Sessions</h3>
+                        <p>Regular individual and group therapy sessions with licensed mental health professionals.</p>
+                        <div class="process-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Card 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="process-card">
+                        <div class="process-number">04</div>
+                        <h3>Skill Building</h3>
+                        <p>Developing coping mechanisms and life skills to manage symptoms and improve daily
+                            functioning.</p>
+                        <div class="process-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Card 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="process-card">
+                        <div class="process-number">05</div>
+                        <h3>Community Integration</h3>
+                        <p>Gradual reintegration into social and vocational activities with ongoing support.</p>
+                        <div class="process-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Card 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="process-card">
+                        <div class="process-number">06</div>
+                        <h3>Aftercare Planning</h3>
+                        <p>Creating a sustainable maintenance plan for long-term mental health stability.</p>
+                        <div class="process-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies Section -->
+    <section class="companies-section py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" style="color: var(--primary-color);">We accept Insurance</h2>
+                    <p class="section-subtitle" style="color: var(--primary-color);">99% of patients have successfully
+                        booked with these insurances</p>
+                </div>
+            </div>
+
+            <div class="scrolling-banner-container">
+                <div class="scrolling-banner">
+                    <!-- First set of logos -->
+                    <div class="company-logo">
+                        <img src="./img/beacon-health.png" alt="Beacon Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/cigna.png" alt="Cigna" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/emblem.png" alt="Emblem" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/magellan.png" alt="Magellan" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/medicaid.jfif" alt="Medicaid" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/optum.png" alt="Optum" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/UMR.jfif" alt="UMR" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/tricare.jfif" alt="Tricare" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/unitedhealth.png" alt="United Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/molina.png" alt="Molina" class="img-fluid">
+                    </div>
+
+                    <!-- Duplicate set for seamless looping -->
+                    <div class="company-logo">
+                        <img src="./img/beacon-health.png" alt="Beacon Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/cigna.png" alt="Cigna" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/emblem.png" alt="Emblem" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/magellan.png" alt="Magellan" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/medicaid.jfif" alt="Medicaid" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/optum.png" alt="Optum" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/UMR.jfif" alt="UMR" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/tricare.jfif" alt="Tricare" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/unitedhealth.png" alt="United Health" class="img-fluid">
+                    </div>
+                    <div class="company-logo">
+                        <img src="./img/molina.png" alt="Molina" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section py-5" id="contact">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" style="color: var(--primary-color);">Contact Us</h2>
+                    <p class="section-subtitle" style="color: var(--primary-color);">We're here to help with all your
+                        healthcare needs</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <form class="contact-form" id="appointmentForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Patient First Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Patient Last Name" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="tel" class="form-control" placeholder="Phone Number" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Insurance Provider">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Member ID Number">
+                            </div>
+
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100">Send Appointment request</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>123 Medical Drive, Healthville, HV 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>(123) 456-7890</p>
+                                <p>(123) 456-7891 (Emergency)</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>info@tibbihealthcare.com</p>
+                                <p>appointments@tibbihealthcare.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5>Hours</h5>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p>Saturday: 9:00 AM - 2:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    
+    
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container mb-4">
+            <div class="d-flex justify-content-between align-items-center footer-top">
+                <div class="footer-top-text">
+                    <p style="font-weight: 40;">
+                        <a href="contact-us.html" style="color: inherit; text-decoration: underline; text-decoration: none;">Book appointment online</a>
+                    </p>
+                    <h3 class="mb-0" style="color: var(--light-color); font-weight: 100;">Stay connected with us</h3>
+                </div>
+                <div class="footer-top-buttons">
+                    <a href="contact-us.html" class="btn custom-btn me-2">BOOK APPOINTMENT</a>
+                    <a href="#" class="btn custom-outline"> CALL NOW</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="footer-brand" href="#">
+                        <img src="./img/TH-Logo-01.png" alt="Tibbi Healthcare Logo" class="logo-img">
+                        TIBBIHEALTHCARE
+                    </a>
+                    <p>Providing exceptional healthcare services with compassion and expertise since 2010.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="providers.html">Our Providers</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="bipolar-disorder.html">Bipolar Disorder</a></li>
+                        <li><a href="ADD-ADHD.html">ADD/ADHD</a></li>
+                        <li><a href="anxiety-disorder.html">Anxiety Disorder</a></li>
+                        <li><a href="depression.html">Depression</a></li>
+                        <li><a href="ptsd.html">PTSD</a></li>
+                        <li><a href="emotional-stress.html">Emotional Stress</a></li>
+                        <li><a href="Schizophrenia.html">Schizophrenia</a></li>
+                        <li><a href="psychosis.html">Psychosis</a></li>
+                        <li><a href="panic-disorder.html">Panic Disorder</a></li>
+                        <li><a href="austime-spectrum.html">Autism Spectrum</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for health tips and updates.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Tibbi Healthcare. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-bottom-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+ 
+  <!--Javascript-->
+  
+
+    <script>
+        document.querySelectorAll('.nav-item.dropdown .dropdown-toggle').forEach(function (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelectorAll('.nav-item.dropdown.active').forEach(function (item) {
+                    if (item !== this.parentElement) item.classList.remove('active');
+                }.bind(this));
+
+                this.parentElement.classList.toggle('active'); 
+            });
+        });
+
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="./js/script.js"></script>
+
+    <!--google excel js
+<script>
+  document.getElementById("appointmentForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch("https://script.google.com/macros/library/d/1gqT7I5xhbIY_3IkGPJ5YlUsi07EDkN1x9z6IkG0Hrn1PA3iwqjsZynFR/1", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(res => {
+      alert("Appointment request sent successfully!");
+      form.reset();
+    })
+    .catch(err => {
+      alert("Submission failed. Try again.");
+      console.error(err);
+    });
+  });
+</script>-->
+
+</body>
+</html>
+
